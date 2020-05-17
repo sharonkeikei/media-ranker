@@ -7,9 +7,13 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" media="screen" href="https://fonts.googleapis.com/css?family=Gudea:400,700|Hammersmith+One" />
   </head>
 
+
+
   <body>
+  <%= render partial: 'layouts/header'%>
     <%= yield %>
   </body>
 </html>
