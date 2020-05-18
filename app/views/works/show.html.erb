@@ -1,0 +1,32 @@
+<main>
+    <section>
+      <h2><%= @work.title %></h2>
+      <p>Created by: <%= @work.creator %></p>
+      <p>Published: <%= @work.publication_year %></p>
+      <p>Description: <%= @work.description %> </p>
+      <section>
+        <a class="btn btn-primary" href="/">Back to media ranks</a>
+        <a class="btn btn-primary" href="/">Edit</a>
+        <a class="btn btn-primary" href="/">Upvote</a>
+        <a class="btn btn-danger" href="/">Delete</a>
+  </section>
+</section>
+
+<section class="works-votes__container">
+  <h3 class="works-votes__header">Votes for this <%= @work.category %></h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a>username</a></td>
+        <td>vote_date</td>
+      </li>
+      </tr>
+    </tbody>
+  </table>
+</main>

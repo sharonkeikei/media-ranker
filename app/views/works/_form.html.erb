@@ -1,0 +1,35 @@
+<section>
+  <%=form_with model: @work, class:'work-form' do |f| %>
+    <% if @work.errors.any? %>
+        <ul>
+        <%@work.errors.each do |column, message|%>
+          <li>
+            <p><%=column%> <%=message%></p>
+          </li>  
+        <%end%>
+        </ul>
+    <%end%>
+
+    <div class="form-group">
+      <%= f.label :category %>
+      <%=f.select :category, ['book', 'movie', 'album'], {},  { class: "form-control" }%>
+    </div>
+    <div class="form-group">
+      <%= f.label :title %>
+      <%=f.text_field :title , class:"form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :creator %>
+      <%=f.text_field :creator  , class:"form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :publication_year %>
+      <%=f.text_field  :publication_year, class:"form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :description %>
+      <%=f.text_area  :description, class:"form-control" %>
+    </div>
+    <%= f.submit action_name, class:"btn btn-primary"%>
+    <%end%>
+</section>

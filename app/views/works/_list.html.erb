@@ -1,1 +1,25 @@
-<%%>
+<section class="media-table">
+  <h4><%= work_category.capitalize%>s</h4>
+      <table class="table">
+      <thead>
+        <tr>
+          <th width=80>Votes</th>
+          <th>Title</th>
+          <th>Created By</th>
+          <th width=100>Published</th>
+          <th width=100>Upvote</th>
+        </tr>
+      </thead>
+      <% @works.where(category: work_category).each do |work| %>
+      <tbody>
+          <tr>
+            <td>vote count</td>
+            <td><a href=""><%= work.title%></a></td>
+            <td><%= work.creator %></td>
+            <td><%= work.publication_year %></td>
+            <td><a class="btn btn-primary" rel="nofollow" data-method="post" href="">Upvote</a></td>
+          </tr>
+      </tbody>
+      <% end %>
+    </table>
+</section>

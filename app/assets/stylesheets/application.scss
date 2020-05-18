@@ -104,3 +104,42 @@ li {
   color: white;
   border-color: #26A69A;
 }
+main {
+  padding: 2rem;
+}
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+.works-votes__container {
+  margin-top: 2rem;
+}
+.btn-primary {
+  background-color: #26A69A;
+  color: white;
+  border-color: #26A69A;
+}
+.table {
+  width: 100%;
+  margin-bottom: 1rem;
+  background-color: transparent;
+}
+table {
+  border-collapse: collapse;
+}
+form {
+  display: block;
+  margin-top: 0em;
+}
+input, button, select, optgroup, textarea {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+button, input {
+  overflow: visible;
+}
+.form-group {
+  margin-bottom: 1rem;
+}
