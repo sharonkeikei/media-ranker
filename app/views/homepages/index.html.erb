@@ -2,21 +2,22 @@
   <section class="spotlight">
     <h2 class="spotlight__header">
       <span class="spotlight__header--prefix">Media Spotlight:</span>
-      <a class="spotlight__link-to" href="">Harry Potter and the Sorcerer&#39;s Stone</a> by J.K. Rowling
+        <%spotlight = Work.find_spotlight %>
+        <a class="spotlight__link-to" href=""><%= spotlight.title %></a> by <%= spotlight.creator %>
     </h2>
     <p class="spotlight__description">
-      28 votes - An orphaned boy enrolls in a school of wizardry, where he learns the truth about himself, his family and the terrible evil that haunts the magical world.
+      <%= pluralize spotlight.votes.length, "vote" %> - <%= spotlight.description %> 
     </p>
   </section>
   <section class='top-ten__container'>
     <section class='top-ten__list-container'>
-      <%= render partial: './works/top_ten_list' %>
+      <%= render partial: './works/top_ten_list', locals: {category: 'movie'} %>
     </section>
     <section class='top-ten__list-container'>
-      <%= render partial: './works/top_ten_list' %>
+      <%= render partial: './works/top_ten_list', locals: {category: 'book'} %>
     </section>
     <section class='top-ten__list-container'>
-      <%= render partial: './works/top_ten_list' %>
+      <%= render partial: './works/top_ten_list' , locals: {category: 'album'} %>
     </section>
   </section>
 </main> 

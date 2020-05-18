@@ -1,10 +1,12 @@
-<h2 class="top-ten__header">Movie</h2>
+<h2 class="top-ten__header">Top <%= category.capitalize %>s</h2>
+<% Work.find_top_ten(category).each do |work| %>
 <ul class="list-group top-ten__list">
       <li class="list-group-item">
         <h4>
-          <a href="">Harry Potter and the Sorcerer&#39;s Stone</a>
-          <small class="top-ten__creator">by J.K. Rowling</small>
+          <a href=""><%= work.title %></a>
+          <small class="top-ten__creator">by <%= work.creator %></small>
         </h4>
-        <p>28 votes</p>
+        <p><%= pluralize work.votes.length, "vote" %></p>
       </li>
 </ul>
+<%end%>
