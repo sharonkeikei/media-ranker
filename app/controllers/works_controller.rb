@@ -15,7 +15,7 @@ class WorksController < ApplicationController
   def create
     @work = Work.new(work_params)
     if @work.save
-      flash[:success] = "#{work.title} has been successfully added!"
+      flash[:success] = "#{@work.title} has been successfully added!"
       redirect_to work_path(id: @work.id)
     else
       flash.now[:error] = "#{@work.title} is not added"
@@ -31,7 +31,7 @@ class WorksController < ApplicationController
   def update
     check_work
     if @work.update(work_params)
-      flash[:success] = "#{work.title} has been successfully edited!"
+      flash[:success] = "#{@work.title} has been successfully edited!"
       redirect_to work_path(id: @work.id)
     else
       flash.now[:error] = "#{@work.title} is not edited"
