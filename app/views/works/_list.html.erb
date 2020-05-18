@@ -10,7 +10,7 @@
           <th width=100>Upvote</th>
         </tr>
       </thead>
-      <% @works.where(category: work_category).each do |work| %>
+      <% @works.where(category: work_category).sort_by_vote_order.each do |work| %>
       <tbody>
           <tr>
             <td><%= work.votes.count %></td>
