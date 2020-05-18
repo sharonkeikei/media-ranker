@@ -1,6 +1,6 @@
 <main>
   <h2>User Summary: <%= link_to @user.username, user_path(@user.id) %></h2>
-  <p>Joined site <%= @user.created_at %></p>
+  <p>Joined site <%= @user.created_at.strftime("%d/%m/%Y") %></p>
 
   <section class="user-votes__container">
     <h3 class="user-votes__header">Votes</h3>
@@ -23,12 +23,13 @@
               <td><%= vote_work.creator %></td>
               <td><%= vote_work.publication_year %></td>
               <td><%= vote_work.category %></td>
-              <td><%= vote.created_at %></td>
+              <td><%= vote.created_at.strftime("%d/%m/%Y") %></td>
             </tr>
           <% end %>
         <% else %>
-          <p>There is no vote from <%= @user.username %> yet</p>
+          <p>There is no vote from <%= @user.username %> yet....</p>
       </tbody>
+      <% end %>
     </table>
   </section>
   <%= link_to 'See all Users', users_path, class:"btn btn-secondary" %>

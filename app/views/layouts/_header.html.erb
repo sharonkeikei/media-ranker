@@ -20,9 +20,10 @@
       </ul>
       <ul class="nav app-header__user-nav-container">
       <%# if there is a user already logged in -> else show different buttons%>
-      <% if session[:user_id] %>
-        <li class="nav-item app-header__nav_item btn btn-primary">
-          <%= link_to "Logged in as #{session[:user_id]}", users_path(session[:user_id]) %>
+      <% current_user = User.find_by(id: session[:user_id]) %>
+      <% if current_user %>
+        <li class="nav-item app-header__nav_item">
+          <%= link_to "Logged in as #{current_user.username}", user_path(session[:user_id]), class:"btn btn-primary" %>
         </li>
         <li class="nav-item app-header__nav_item">
           <%= link_to 'Log Out', logout_path, method: :post, class:"btn btn-primary" %>
