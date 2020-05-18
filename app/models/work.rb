@@ -9,12 +9,12 @@ class Work < ApplicationRecord
   end
 
   def self.find_top_ten(category)
-    work_by_category = Work.where(category: category)
-    return work_by_category.limit(10).sort_by{|work| work.votes.count}.reverse
+    work_by_category = Work.where(category: category).sort_by{|work| work.votes.count}.reverse
+    return work_by_category[0..10]
   end
 
   def self.find_spotlight 
     works = Work.all
-    return works.max_by{|work| work.votes.count}
+    return works.sort_by_vote_order.first
   end
 end
