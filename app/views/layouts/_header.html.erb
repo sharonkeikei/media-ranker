@@ -5,27 +5,32 @@
   </h1>
   <nav class="app-header__nav">
       <ul class="nav app-header__site-nav-container">
-        <li class="nav-item app-header__nav_item">
-          <a class="nav-link" href="/">View top media</a>
+        <li class="nav-item app-header__nav_item nav-link">
+          <%= link_to "View top media", root_path %>
         </li>
-        <li class="nav-item app-header__nav_item">
-          <a class="nav-link" href="/works">View all media</a>
+        <li class="nav-item app-header__nav_item nav-link">
+          <%= link_to "View all media", works_path %>
         </li>
-        <li class="nav-item app-header__nav_item">
-          <a class="nav-link" href="/works/new">Add a new work</a>
+        <li class="nav-item app-header__nav_item nav-link">
+          <%= link_to "Add a new work", new_work_path %>
         </li>
-        <li class="nav-item app-header__nav_item">
-          <a class="nav-link" href="/users">View all users</a>
+        <li class="nav-item app-header__nav_item nav-link">
+          <%= link_to "View all users", users_path %>
         </li>
       </ul>
       <ul class="nav app-header__user-nav-container">
-
-        <li class="nav-item app-header__nav_item">
-          <a class="btn btn-primary" href="">Logged in as </a>
+      <%# if there is a user already logged in -> else show different buttons%>
+      <% if session[:user_id] %>
+        <li class="nav-item app-header__nav_item btn btn-primary">
+          <%= link_to "Logged in as #{session[:user_id]}", users_path(session[:user_id]) %>
         </li>
         <li class="nav-item app-header__nav_item">
-          <a class="btn btn-primary" rel="nofollow" data-method="post" href="/logout">Log Out</a>
+          <%= link_to 'Log Out', logout_path, method: :post, class:"btn btn-primary" %>
         </li>
+      <% else %>
+        <li class="nav-item app-header__nav_item">
+        <%= link_to 'Log In', login_path, class:"btn btn-primary"%>
       </ul>
+      <% end %>
     </nav>
   </header>
