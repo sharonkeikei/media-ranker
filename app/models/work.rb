@@ -1,6 +1,7 @@
 class Work < ApplicationRecord
   has_many :votes, dependent: :destroy
-  validates :title, :category, presence: true, uniqueness: true
+  validates :title, presence: true, uniqueness: true
+  validates :category, presence: true
 
   def self.find_top_ten(category)
     work_by_category = Work.where(category: category)

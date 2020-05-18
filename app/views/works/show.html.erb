@@ -5,16 +5,21 @@
     <p>Published: <%= @work.publication_year %></p>
     <p>Description: <%= @work.description %> </p>
     <section>
-      <a class="btn btn-primary" href="/">Back to media ranks</a>
-      <a class="btn btn-primary" href="/">Edit</a>
+      <%= link_to 'Back to media ranks', root_path, class:"btn btn-primary" %>
+      <%= link_to 'Edit', edit_work_path(@work.id), class:"btn btn-primary" %>
       <a class="btn btn-primary" href="/">Upvote</a>
-      <a class="btn btn-danger" href="/">Delete</a>
+      <%= link_to 'Delete', work_path(@work.id),
+          method: :delete , data: {confirm: 'Are you sure to delete?'}, 
+          class:"btn btn-danger" 
+      %>
     </section>
   </section>
 
   <section class="works-votes__container">
-    <h3 class="works-votes__header">Votes for this <%= @work.category %></h3>
+    <h3 class="works-votes__header"><%= pluralize @work.votes.count, "vote" %> for this <%= @work.category %></h3>
     <table class="table">
+    <% if @work.votes.count > 0 %>
+      <% @work.votes.each do |vote|%>
       <thead>
         <tr>
           <th>User</th>
@@ -23,11 +28,15 @@
       </thead>
       <tbody>
         <tr>
-          <td><a>username</a></td>
-          <td>vote_date</td>
+          <td><%= link_to vote.username, "" %></td>
+          <td><%= vote.created_at %></td>
         </li>
         </tr>
       </tbody>
+      <% end %>
+    <% else %>
+      <p> There is no vote for <%=@work.title%> yet ... </p>
+    <% end %>
     </table>
   </section>
 </main>

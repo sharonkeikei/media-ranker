@@ -6,7 +6,7 @@
           <a href=""><%= work.title %></a>
           <small class="top-ten__creator">by <%= work.creator %></small>
         </h4>
-        <p><%= pluralize work.votes.length, "vote" %></p>
+        <p><%= pluralize work.votes.count, "vote" %></p>
       </li>
 </ul>
 <%end%>

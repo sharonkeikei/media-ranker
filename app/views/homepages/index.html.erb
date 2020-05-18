@@ -6,7 +6,7 @@
         <a class="spotlight__link-to" href=""><%= spotlight.title %></a> by <%= spotlight.creator %>
     </h2>
     <p class="spotlight__description">
-      <%= pluralize spotlight.votes.length, "vote" %> - <%= spotlight.description %> 
+      <%= pluralize spotlight.votes.count, "vote" %> - <%= spotlight.description %> 
     </p>
   </section>
   <section class='top-ten__container'>

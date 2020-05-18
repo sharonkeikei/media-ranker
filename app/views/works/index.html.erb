@@ -4,6 +4,6 @@
   <%= render partial: 'list' , locals: { work_category: 'movie'} %>
   <%= render partial: 'list' , locals: { work_category: 'book'} %>
 
-  <a class="btn btn-secondary" href="/">View top media</a>
-  <a class="btn btn-primary" href="">Add a new work</a>
+  <%= link_to 'View top media', root_path, class:"btn btn-secondary" %>
+  <%= link_to 'Add a new work', new_work_path, class:"btn btn-primary" %>
 </main>

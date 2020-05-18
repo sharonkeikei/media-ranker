@@ -13,8 +13,8 @@
       <% @works.where(category: work_category).each do |work| %>
       <tbody>
           <tr>
-            <td>vote count</td>
-            <td><a href=""><%= work.title%></a></td>
+            <td><%= work.votes.count %></td>
+            <td><%= link_to work.title, work_path(work.id) %></a></td>
             <td><%= work.creator %></td>
             <td><%= work.publication_year %></td>
             <td><a class="btn btn-primary" rel="nofollow" data-method="post" href="">Upvote</a></td>
