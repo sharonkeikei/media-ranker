@@ -6,8 +6,8 @@ class Vote < ApplicationRecord
   validates_uniqueness_of :user_id, scope: :work_id
 
   # return true if there is an exisiting vote, else return false
-  def check_exisiting_vote(current_user, work_id)
-    return exisiting_vote = Vote.where(user_id: current_user.id, work_id: work_id)
+  def self.check_exisiting_vote(current_user_id, work_id)
+    return Vote.where(user_id: current_user_id, work_id: work_id).count > 0
   end
 
 end

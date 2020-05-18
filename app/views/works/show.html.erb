@@ -7,7 +7,7 @@
     <section>
       <%= link_to 'Back to media ranks', root_path, class:"btn btn-primary" %>
       <%= link_to 'Edit', edit_work_path(@work.id), class:"btn btn-primary" %>
-      <a class="btn btn-primary" href="/">Upvote</a>
+      <%= link_to 'Upvote', work_upvote_path(@work.id), class:"btn btn-primary" %>
       <%= link_to 'Delete', work_path(@work.id),
           method: :delete , data: {confirm: 'Are you sure to delete?'}, 
           class:"btn btn-danger" 
