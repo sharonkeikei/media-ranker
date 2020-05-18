@@ -28,8 +28,8 @@
       </thead>
       <tbody>
         <tr>
-          <td><%= link_to vote.username, "" %></td>
-          <td><%= vote.created_at %></td>
+          <td><%= link_to User.find_by(id: vote.user_id).username, user_path(vote.user_id) %></td>
+          <td><%= vote.created_at.strftime("%b %d, %Y") %></td>
         </li>
         </tr>
       </tbody>

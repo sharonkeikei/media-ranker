@@ -17,7 +17,7 @@ class VotesController < ApplicationController
       redirect_back(fallback_location: root_path)
     else 
       vote.save
-      flash[:success] = "Successfully upvoted #{Work.find_by(@work_id)}"
+      flash[:success] = "Successfully upvoted #{Work.find_by(id: @work_id).title}"
       redirect_back(fallback_location: root_path)
     end
   end

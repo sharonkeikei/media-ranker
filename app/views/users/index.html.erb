@@ -14,7 +14,7 @@
         <tr>
           <td><%= link_to user.username, user_path(user.id) %>
           <td><%= user.votes.count %></td>
-          <td><%= user.created_at.strftime("%d/%m/%Y") %></td>
+          <td><%= user.created_at.strftime("%b %d, %Y") %></td>
         </tr>
       <%end%>
     </tbody>
