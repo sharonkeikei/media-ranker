@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   resources :users
   resources :votes
 
+  get "/login", to: "users#login_form", as "login"
+  post "/login", to: "users#login"
+  post "/logout", to: "users#logout"
+  
   get '/homepages', to: 'homepages#index', as: 'homepages'
   root to: 'homepages#index'
 end

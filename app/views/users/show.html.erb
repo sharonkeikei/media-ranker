@@ -1,0 +1,36 @@
+<main>
+  <h2>User Summary: <%= link_to @user.username, user_path(@user.id) %></h2>
+  <p>Joined site <%= @user.created_at %></p>
+
+  <section class="user-votes__container">
+    <h3 class="user-votes__header">Votes</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Media Title</th>
+          <th>Created By</th>
+          <th>Published</th>
+          <th>Category</th>
+          <th>Voted On</th>
+        </tr>
+      </thead>
+        <tbody>
+          <% if @user.votes.count > 0%>
+            <% @user.votes.each do |vote|%>
+            <tr>
+              <% vote_work = Work.find_by(id: vote.work_id) %>
+              <td><%= link_to vote_work.title, work_path(vote.work_id) %></td>
+              <td><%= vote_work.creator %></td>
+              <td><%= vote_work.publication_year %></td>
+              <td><%= vote_work.category %></td>
+              <td><%= vote.created_at %></td>
+            </tr>
+          <% end %>
+        <% else %>
+          <p>There is no vote from <%= @user.username %> yet</p>
+      </tbody>
+    </table>
+  </section>
+  <%= link_to 'See all Users', users_path, class:"btn btn-secondary" %>
+  <%= link_to 'Back to Media List', root_path, class:"btn btn-primary" %>
+</main>
