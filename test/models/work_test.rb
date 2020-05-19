@@ -1,7 +1,23 @@
 require "test_helper"
 
 describe Work do
-  # it "does a thing" do
-  #   value(1+1).must_equal 2
-  # end
+  describe 'relations' do
+    it 'can have many Vote' do
+      
+    
+    end
+  end
+
+  describe 'validations' do
+  
+    it 'is valid when there is a title' do
+    
+    end
+
+    it 'fails validation when there is no title' do
+    
+    end
+
+    it 'valid'
+  end
 end

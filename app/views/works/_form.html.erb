@@ -1,15 +1,5 @@
 <section>
   <%=form_with model: @work, class:'work-form' do |f| %>
-    <% if @work.errors.any? %>
-        <ul>
-        <%@work.errors.each do |column, message|%>
-          <li>
-            <p><%=column%> <%=message%></p>
-          </li>  
-        <%end%>
-        </ul>
-    <%end%>
-
     <div class="form-group">
       <%= f.label :category %>
       <%=f.select :category, ['book', 'movie', 'album'], {},  { class: "form-control" }%>

@@ -18,7 +18,8 @@ class WorksController < ApplicationController
       flash[:success] = "#{@work.title} has been successfully added!"
       redirect_to work_path(id: @work.id)
     else
-      flash.now[:error] = "#{@work.title} is not added"
+      flash.now[:warning] = "A problem occurred: Could not create album"
+      flash.now[:message] = @work.errors.full_messages[0]
       render :new
       return
     end
@@ -34,7 +35,7 @@ class WorksController < ApplicationController
       flash[:success] = "#{@work.title} has been successfully edited!"
       redirect_to work_path(id: @work.id)
     else
-      flash.now[:error] = "#{@work.title} is not edited"
+      flash.now[:warning] = "#{@work.title} is not edited"
       render :edit
       return
     end
@@ -64,4 +65,14 @@ class WorksController < ApplicationController
   def work_params
     return params.require(:work).permit(:title, :category, :creator, :publication_year, :description)
   end
+
+  # def some_errors
+  #   if @work.errors.any?
+  #     @work.errors.each do |column, message|
+  #       return "#{column} #{message}"
+  #     end
+  #   end
+  # end
+
 end
+

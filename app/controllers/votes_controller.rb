@@ -1,12 +1,7 @@
 class VotesController < ApplicationController
-  before_action :find_current_user, only: [:upvote]
+  before_action :require_login, only: [:upvote]
 
   def upvote
-    if @current_user.nil?
-      flash[:error] = 'You would need to login to upvote a work!'
-      redirect_back(fallback_location: root_path)
-    end
-
     @work_id = params[:work_id]
     vote = Vote.new
     vote.work_id = @work_id

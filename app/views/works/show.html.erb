@@ -18,8 +18,6 @@
   <section class="works-votes__container">
     <h3 class="works-votes__header"><%= pluralize @work.votes.count, "vote" %> for this <%= @work.category %></h3>
     <table class="table">
-    <% if @work.votes.count > 0 %>
-      <% @work.votes.each do |vote|%>
       <thead>
         <tr>
           <th>User</th>
@@ -27,6 +25,8 @@
         </tr>
       </thead>
       <tbody>
+    <% if @work.votes.count > 0 %>
+      <% @work.votes.each do |vote|%>
         <tr>
           <td><%= link_to User.find_by(id: vote.user_id).username, user_path(vote.user_id) %></td>
           <td><%= vote.created_at.strftime("%b %d, %Y") %></td>

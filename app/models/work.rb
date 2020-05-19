@@ -1,7 +1,8 @@
 class Work < ApplicationRecord
   has_many :votes, dependent: :destroy
-  validates :title, presence: true, uniqueness: true
+  validates :title, presence: true
   validates :category, presence: true
+  validates_uniqueness_of :title, scope: :category
 
   def self.sort_by_vote_order
     work = Work.all

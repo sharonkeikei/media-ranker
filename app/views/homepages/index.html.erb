@@ -2,12 +2,11 @@
   <section class="spotlight">
     <h2 class="spotlight__header">
       <span class="spotlight__header--prefix">Media Spotlight:</span>
-        <%spotlight = Work.find_spotlight %>
-        <%= link_to spotlight.title, work_path(spotlight.id), class:"spotlight__link-to" %> by 
-        <%= spotlight.creator %>
+        <%= link_to @spotlight.title, work_path(@spotlight.id), class:"spotlight__link-to" %> by 
+        <%= @spotlight.creator %>
     </h2>
     <p class="spotlight__description">
-      <%= pluralize spotlight.votes.count, "vote" %> - <%= spotlight.description %> 
+      <%= pluralize @spotlight.votes.count, "vote" %> - <%= @spotlight.description %> 
     </p>
   </section>
   <section class='top-ten__container'>
