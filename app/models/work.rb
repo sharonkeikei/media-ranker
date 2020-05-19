@@ -11,7 +11,7 @@ class Work < ApplicationRecord
 
   def self.find_top_ten(category)
     work_by_category = Work.where(category: category).sort_by{|work| work.votes.count}.reverse
-    return work_by_category[0..10]
+    return work_by_category[0...10]
   end
 
   def self.find_spotlight 
