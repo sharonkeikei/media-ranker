@@ -22,7 +22,8 @@ describe Work do
     
     end
 
-    it 'valid' do
+    it 'fails validation when the title already exits' do
+    
     end 
   end
 end
