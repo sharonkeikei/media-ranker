@@ -47,7 +47,7 @@ describe Work do
       expect(new_work.errors.messages[:title]).must_equal ["can't be blank"]
     end
 
-    it 'fails validation when the title already exits' do
+    it 'fails validation when the title already exits in same category' do
       # since yml file already has a title of 'Guardians of the Galaxy'
       new_movie = Work.new(title: "Guardians of the Galaxy", category: 'movie')
 
