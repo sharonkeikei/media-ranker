@@ -18,8 +18,7 @@ class WorksController < ApplicationController
       flash[:success] = "#{@work.title} has been successfully added!"
       redirect_to work_path(id: @work.id)
     else
-      flash.now[:warning] = "A problem occurred: Could not create album"
-      flash.now[:message] = @work.errors.full_messages[0]
+      flash.now[:warning] = "A problem occurred: Could not create album. \n" + @work.errors.full_messages[0]
       render :new
       return
     end
