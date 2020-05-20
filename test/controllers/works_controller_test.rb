@@ -1,7 +1,11 @@
 require "test_helper"
 
 describe WorksController do
-  # it "does a thing" do
-  #   value(1+1).must_equal 2
-  # end
+  describe 'index' do
+    it 'responds with success when there are multiple works created' do
+      # 14 works from yml
+      expect(Work.all.length).must_equal 14
+    end
+  end
+
 end
