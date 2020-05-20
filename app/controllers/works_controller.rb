@@ -1,5 +1,5 @@
 class WorksController < ApplicationController
-  before_action :find_work, only: [:show, :edit, :update, :destroy]
+  before_action :find_work, :check_work, only: [:show, :edit, :update, :destroy]
   def index
     @works = Work.all    
   end
@@ -30,7 +30,6 @@ class WorksController < ApplicationController
   end
 
   def update
-    check_work
     if @work.update(work_params)
       flash[:success] = "#{@work.title} has been successfully edited!"
       redirect_to work_path(id: @work.id)
@@ -65,14 +64,5 @@ class WorksController < ApplicationController
   def work_params
     return params.require(:work).permit(:title, :category, :creator, :publication_year, :description)
   end
-
-  # def some_errors
-  #   if @work.errors.any?
-  #     @work.errors.each do |column, message|
-  #       return "#{column} #{message}"
-  #     end
-  #   end
-  # end
-
 end
 
