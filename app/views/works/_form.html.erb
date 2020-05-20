@@ -1,5 +1,6 @@
 <section>
   <%=form_with model: @work, class:'work-form' do |f| %>
+
     <div class="form-group">
       <%= f.label :category %>
       <%=f.select :category, ['book', 'movie', 'album'], {},  { class: "form-control" }%>
