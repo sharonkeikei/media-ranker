@@ -1,4 +1,4 @@
-# three votes for guardians <--- most voted 
+# four votes for guardians 
 # testing for spotlight
 one: 
   user: joseph
@@ -9,7 +9,7 @@ two:
 three:
   user: hannah
   work: guardians
-# four votes for asana
+# four votes for asana <--- most voted 
 four: 
   user: doggies
   work: asana

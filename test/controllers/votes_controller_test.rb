@@ -30,7 +30,7 @@ describe VotesController do
       expect(Vote.last.user.username).must_equal "Gillian Chung" 
     end
 
-    it 'will let the same user to upvote the same work more than once' do
+    it 'will NOT let the same user to upvote the same work more than once' do
       # Sharon has already voted on works(:asana) in yml
 
       login(users(:sharon).username)
@@ -41,6 +41,19 @@ describe VotesController do
       expect{ 
         get work_upvote_path(works(:asana).id)
       }.wont_change "Vote.count"
+
+      expect(flash[:error]).must_include "You can only vote for the same work once"
+    end
+
+    it "redirects us back if the user is not logged in" do
+      # Act
+      expect{ 
+        get work_upvote_path(works(:asana).id)
+      }.wont_change "works(:asana).votes.count"
+
+      # Assert 
+      must_respond_with :redirect
+      expect flash[:error].must_equal  "Sorry! You must be logged in to upvote!"
     end
   end
 end
